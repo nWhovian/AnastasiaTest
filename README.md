@@ -1,35 +1,42 @@
-# Замена лица (Тестовое задание)
-Задание является тестовым от компании "Clofit" на позицию CV Engineer.
 
-## Задание
-Тестовое задание разделено на две части. Часть №1 обязательная и мы примем Вашу кандидатуру к рассмотрению только в том случае если часть №1
-выполнена. Часть №2 опциональная, по количеству задач из этой части которые Вы смогли выполнить мы сможем оценить Ваш уровень опыта и навыков в области computer vision.
-При выполнении тестового задания Вы можете дополнительно использовать любые сторонние Python библиотеки. Все 3rd party Python библиотеки должны быть добавлены в проект через pip (requirements.txt) или указаны в качестве установленных пакетов в ноутбуке (jupyter). Для выполнения задачи и реализации отдельных шагов алгоритма возможно использование готовых решений, кроме нейросетевых end2end face swap решений.
+# Face swap using dlib and OpenCV
 
-### Описание задачи
-Необходимо разработать подход для реалистичного переноса лица с одного изображения на другое.
+### Installation guide
 
-### Часть №1
-Необходимо вырезать регион лица с одного изображения и перенести в правильное место на втором изображении:
-- Метод детекции bounding box лица на фото
-- Метод уточненного региона лица на фото: segmentation mask/2Dlandmarks/3Dlandmarks/optical flow или любой другой метод, позволяющий получить контуры лица для переноса.
-- Визуализации выбранных репрезентаций (bbox + контуры)
-- Вставка по контуру лица с 1-го изображения на 2-ое и наоборот (любым способом)
-- Использовать для переноса лица фотографии: `assets/img_1.jpeg`, `assets/img_2.jpeg`
+Clone repository:
+```
+git clone https://github.com/nWhovian/AnastasiaTest.git
+cd path/to/repository
+```
+The ```face_swap.ipynb``` file contains a detailed solution with illustrations, python scripts contain more structured, readable code with an improved triangulation approach
 
-### Часть №2
-- Реализовать метод блендинга (смешения) 2 изображений: исходного и вставляемого лица. Метод блендинга должен уменьшить разницу в цветах и текстуре между 2 изображений и сделать границу вставки невидимой. 
-- Учесть позу головы (лица) при наложении. Лица на изображения могут быть повернуты по разному и дополнительно искажены перспективными искажениями. Необходимо учитывать их положения для получения лучших результатов.
-- Перенести лица на паре фотографий: `assets/img_3.jpeg`, `assets/img_4.jpeg`
+[comment]: <> (Download the docker image:)
 
-### На вход
-2 фотографии из папки *assets*
-### На выход
-2 фотографии с измененными лицами
-### Срок выполнения
-1 сутки
-### Формат предоставления решения
-- merge request в этот репозиторий
-- notebook с решением (можно копию с collab) или scripts
-### Технические требования
-- Python 3.6+
+[comment]: <> (```)
+
+[comment]: <> (docker-compose pull)
+
+[comment]: <> (```)
+
+[comment]: <> (Start and run the app:)
+
+[comment]: <> (```)
+
+[comment]: <> (docker-compose up)
+
+[comment]: <> (```)
+
+[comment]: <> (Access the running container:)
+
+[comment]: <> (```)
+
+[comment]: <> ( docker exec -it car_tracker_app_1 bash)
+
+[comment]: <> (```)
+Run the algorithm:
+```
+python main.py --img1 assets/img_3.jpeg --img2 assets/img_4.jpeg
+```
+Optional arguments: ```--out results --predictor_path assets/shape_predictor_68_face_landmarks.dat```
+
+The output files are located here by default: path/to/repository/results
